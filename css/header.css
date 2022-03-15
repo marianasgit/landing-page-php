@@ -1,0 +1,99 @@
+header {
+  width: inherit;
+  height: 145px;
+  background-color: lightblue;
+  background-image: url(../img/background-header.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-burger {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#checkbox-menu {
+  position: absolute;
+  opacity: 0;
+}
+
+label {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  height: 22px;
+  width: 70px;
+}
+
+label span {
+  position: absolute;
+  display: block;
+  height: 7px;
+  width: 100%;
+  border-radius: 30px;
+  background: #fff;
+  transition: 0.25s ease-in-out;
+}
+
+label span:nth-child(1) {
+  top: 0;
+}
+
+label span:nth-child(2) {
+  top: 8px;
+}
+
+label span:nth-child(3) {
+  top: 16px;
+}
+
+#checkbox-menu:checked + label span:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+
+#checkbox-menu:checked + label span:nth-child(2) {
+  opacity: 0;
+}
+
+#checkbox-menu:checked + label span:nth-child(3) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+label div {
+  display: none;
+  width: 500px;
+
+  padding-top: 80px;
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.menu > ul {
+  list-style: none;
+}
+
+.menu > dropdown-menu li {
+  display: flex;
+  width: 60px;
+}
+
+.dropdown-menu a {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
+  color: #fff;
+  font-size: 32px;
+}
+
+#checkbox-menu:checked + label div {
+  display: block;
+}
+
+.navegacao {
+  list-style: none;
+}
