@@ -36,7 +36,7 @@ const criarCard = (produto) => {
   card.classList.add("card");
   card.innerHTML = `
     <div class="card-image-container">
-                    <img src="${produto.imagem}" alt="monitor" class="card-image">
+                    <img src="${produto.imagem}" alt="foto do produto" class="card-image">
                 </div>
                 <span class="card-produto">
                     ${produto.nome}
@@ -54,7 +54,7 @@ const criarCard = (produto) => {
 };
 
 const carregarProdutos = (produtos) => {
-  const container = document.querySelector(".card-container");
+  const container = document.querySelector(".card-container-destaque");
   const cards = produtos.map(criarCard);
 
   container.replaceChildren(...cards);

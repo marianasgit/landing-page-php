@@ -1,13 +1,17 @@
 .destaques-semana {
-  width: 1550px;
+  width: 100%;
   height: fit-content;
-  overflow: hidden;
+  display: flex; 
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  
 }
 
 /*Formatacao cards*/
 
-.card-container {
+.card-container-destaque {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
