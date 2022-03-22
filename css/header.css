@@ -9,6 +9,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  position: relative;
 }
 
 .menu-burger {
@@ -97,10 +98,10 @@ label div {
 nav {
   width: 100%;
   position: absolute;
-  top: 130px;
+  bottom: 0;
   padding: 0 20px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -110,8 +111,10 @@ nav {
 .navegacao {
   list-style: none;
   display: flex;
-  width: 100%;
+  width: 1200px;
   margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .navegacao > li {
