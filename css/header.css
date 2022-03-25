@@ -79,16 +79,19 @@ label div {
   list-style: none;
 }
 
-.menu > dropdown-menu li {
-  display: flex;
-  width: 60px;
+.dropdown-menu {
+  width: 350px;
+  height: 200px;
+  border-color: #000;
+  background-color: rgba(255, 255, 255, 0.507);
+  margin-left: 15px;
 }
 
 .dropdown-menu a {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-decoration: none;
-  color: #fff;
-  font-size: 32px;
+  color: #000;
+  font-size: 20px;
 }
 
 #checkbox-menu:checked + label div {

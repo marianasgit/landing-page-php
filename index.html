@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/section-catalogo.css" />
+    <link rel="stylesheet" href="./css/sections.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -59,15 +58,52 @@
         <div class="card-container-catalogo">
           <div class="card"></div>
         </div>
-        <button>Carregar Mais</button>
+        <button class="carregar-mais">Carregar Mais</button>
       </section>
       <section class="catalogo-promocoes">
-          <h4>PROMOÇÃO!</h4>
-          <div class="card-container-promocao">
-            <div class="card"></div>
-          </div>
-
+        <h4>PROMOÇÃO!</h4>
+        <div class="card-container-promocao">
+          <div class="card"></div>
+        </div>
       </section>
     </main>
+    <footer>
+      <form action="" method="post">
+        <div class="campos">
+          <div class="cadastroInformacoesPessoais">
+            <label> Nome: </label>
+          </div>
+          <div class="cadastroEntradaDeDados">
+            <input
+              type="text"
+              name="txtNome"
+              value=""
+              placeholder="Digite seu Nome"
+              maxlength="100"
+            />
+          </div>
+        </div>
+        <div class="campos">
+          <div class="cadastroInformacoesPessoais">
+            <label> Email: </label>
+          </div>
+          <div class="cadastroEntradaDeDados">
+            <input type="email" name="txtEmail" value="" />
+          </div>
+        </div>
+        <div class="campos">
+          <div class="cadastroInformacoesPessoais">
+            <label> Observações: </label>
+          </div>
+          <div class="cadastroEntradaDeDados">
+            <textarea name="txtObs" cols="50" rows="7"></textarea>
+          </div>
+        </div>
+        <div class="enviar">
+            <input type="submit" name="btnEnviar" value="Salvar" />
+          </div>
+        </div>
+      </form>
+    </footer>
   </body>
 </html>
