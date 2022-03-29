@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.section-login {
+  /*background-color: thistle;*/
+  width: 500px;
+  height: 300px;
+  border: 1px solid;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.section-login h3 {
+  font-size: 25px;
+  padding-bottom: 12px;
+}
+
+.section-login h4 {
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.dados-login {
+  padding-bottom: 15px;
+  text-align: right;
+  padding-right: 80px;
+}
+
+.botao-entrar {
+  width: 120px;
+  height: 40px;
+  background-color: rgba(168, 204, 95, 0.507);
+  font-size: 16px;
+  font-weight: 500;
+}
