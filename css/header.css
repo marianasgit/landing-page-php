@@ -67,11 +67,10 @@ label span:nth-child(3) {
   top: 8px;
 }
 
-label div {
+.menu{
   display: none;
-  width: 500px;
-  padding-top: 80px;
-  padding-left: 20px;
+  width: 300px;
+  padding-top: 50px;
   text-decoration: none;
 }
 
@@ -80,18 +79,29 @@ label div {
 }
 
 .dropdown-menu {
-  width: 350px;
-  height: 200px;
+  width: 200px;
+  height: 180px;
   border-color: #000;
-  background-color: rgba(255, 255, 255, 0.507);
-  margin-left: 15px;
+  background-color: rgba(255, 255, 255, 0.856);
+  border: 1px solid;
+  margin-top: 4px;
+  margin-left: 3px;
 }
 
 .dropdown-menu a {
-  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-decoration: none;
   color: #000;
   font-size: 20px;
+}
+
+.item-menu:hover {
+  border: 1px solid;
+}
+
+.item-menu {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-left: 15px;
 }
 
 #checkbox-menu:checked + label div {

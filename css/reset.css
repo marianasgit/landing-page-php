@@ -23,3 +23,8 @@ footer {
   height: fit-content;
   background-color: rgba(128, 81, 55, 0.16);
 }
+
+html { box-sizing: border-box; }
+*,
+*::before,
+*::after { box-sizing: inherit; }
