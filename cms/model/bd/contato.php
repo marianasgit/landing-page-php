@@ -17,6 +17,7 @@ function insertContato($dadosContato)
 {
     // Abre a conexao com o BD
     $conexao = conexaoMySql()
+    
 }
 
 // Função para listar todos os contatos no BD
