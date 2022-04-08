@@ -7,13 +7,25 @@
  * Versão: 1.0
  *********************************************************************/
 
+// Import do arquivo que estabelece a conexão com o BD
+require_once('conexaoMySql.php');
+
+$statusResposta = (bool) false;
+
+// Função para realizar o insert no BD
+function insertContato($dadosContato)
+{
+    // Abre a conexao com o BD
+    $conexao = conexaoMySql()
+}
+
 // Função para listar todos os contatos no BD
 function selectAllContatos()
 {
 
     require_once('conexaoMySql.php');
     // Abre a conexao com o banco de dados
-    $conexao = conexaoMysql();
+    $conexao = conexaoMySql();
 
     // Script para listar todos os dados do banco de dados
     $sql = 'select * from tblcontatos order by idcontato desc';
@@ -46,12 +58,14 @@ function selectAllContatos()
 
 }
 
+
+
 function deleteContato($id)
 {
 
     require_once('conexaoMySql.php');
     // Abre a conexao com o BD
-    $conexao = conexaoMysql();
+    $conexao = conexaoMySql();
 
     $sql = 'delete from tblcontatos where idcontato = ' .$id;
 

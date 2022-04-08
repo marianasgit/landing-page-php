@@ -13,10 +13,10 @@ const USER = 'root';
 const PASSWORD = 'bcd127';
 const DATABASE = 'dbcoffeeshop';
 
-$resultado = conexaoMysql();
+$resultado = conexaoMySql();
 
 // Abre a conexao com o banco de dados MySql
-function conexaoMysql()
+function conexaoMySql()
 {
     $conexao = array();
 
