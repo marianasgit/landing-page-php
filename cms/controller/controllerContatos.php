@@ -49,7 +49,7 @@ function inserirContato($dadosContato)
 function listarContato()
 {
     // Import do arquivo que vai buscar os dados 
-    require_once('./model/bd/contato.php');
+    require_once('model/bd/contato.php');
 
     // Chama a função que vai buscar os dados no BD
     $dados = selectAllContatos();

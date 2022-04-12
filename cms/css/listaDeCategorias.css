@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  
+  header {
+    width: 100vw;
+    height: 150px;
+    background-color: rgb(190, 135, 110);
+  }
+  
+  header h3 {
+    padding-left: 50px;
+    padding-top: 40px;
+    font-size: 26px;
+    color: white;
+  }
+  
+  header h5 {
+    padding-left: 50px;
+    font-size: 10px;
+    color: white;
+  }
+  
+  .logo {
+    position: absolute;
+    width: 119px;
+    height: 96px;
+    left: 1680px;
+    top: 13px;
+  }
+  
+  .navegacao {
+    height: 120px;
+    display: flex;
+    background-color: rgba(128, 81, 55, 0.123);
+  }
+  
+  .navegacao ul {
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    list-style: none;
+  }
+  
+  .logout {
+    width: fit-content;
+    margin: auto;
+    padding-left: 250px;
+    text-align: center;
+  }
+  
+  .logout img {
+    margin-top: 8px;
+  }
+  
+  .sessao h3 {
+    padding-top: 50px;
+    padding-left: 50px;
+  }
+  
+  #consultaDeDados {
+    width: 1000px;
+    min-height: 300px;
+    height: auto;
+    border: solid 1px black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    box-shadow: 10px 10px 10px #cccccc;
+  }
+  #tblConsulta {
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+  }
+  #tblTitulo {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(190, 135, 110, 0.822);
+    color: white;
+    text-align: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  
+    font-size: 1em;
+  }
+  #tblLinhas {
+    width: 100%;
+    height: 50px;
+    border: solid 1px black;
+  }
+  .tblColunas {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    /*background-color: darkseagreen;*/
+    border: solid 1px black;
+  }
+  
+  .destaque {
+    color: #fff;
+    background-color: rgba(190, 135, 110, 0.822);
+  }
+  
+  .excluir {
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+  }

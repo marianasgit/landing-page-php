@@ -16,7 +16,7 @@ $statusResposta = (bool) false;
 function insertContato($dadosContato)
 {
     // Abre a conexao com o BD
-    $conexao = conexaoMySql()
+    $conexao = conexaoMySql();
     
 }
 
