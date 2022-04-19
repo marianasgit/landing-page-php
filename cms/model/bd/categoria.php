@@ -59,6 +59,29 @@
      return $statusResposta;
  }
 
+function updateCategoria($dadosCategoria)
+{
+    // Abre a conexão com o BD
+    $conexao = conexaoMySql();
+
+    // Monta o script para enviar para o BD
+    $sql = "update tblcategorias set 
+                nome = '".$dadosCategoria['nome']."' 
+            where idcategoria = ".$dadosCategoria['id']; 
+
+    // Valida se o script sql está correto
+    if (mysqli_query($conexao, $sql)) 
+    {
+        if (mysqli_affected_rows($conexao))
+            $statusResposta = true;
+
+    } else 
+        // Solicita o fechamento da conexão
+        fecharConexaoMySql($conexao);
+    
+    return $statusResposta;    
+}
+
  function selectAllCategorias()
  {
      // Abre a conexão com o BD

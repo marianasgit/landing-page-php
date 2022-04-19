@@ -127,6 +127,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                 $_SESSION['dadosCategoria'] = $dados;
 
                 require_once('listaDeCategorias.php');
+
+            } else if ($action == 'EDITAR')
+            {
+                // Recebe o id que foi encaminhado no action do form
+                $idcategoria = $_GET['id'];
+
+                // Chama a função de editar na controller
+                $resposta = atualizarCategoria($_POST, $idcategoria);
+
+                // Valida o tipo de dado que a controller retorna
+                if (is_bool($resposta))
+                {
+                    // Verificar se o retorno foi verdadeiro
+                    if ($resposta)
+                        echo("<script>alert('Registro atualizado com sucesso!');
+                                window.location.href = 'listaDeCategorias.php';
+                            </script>");
+
+                } elseif (is_array($resposta))
+                    echo ("<script>alert('". $resposta['message']."');
+                                window.history.back();
+                            </script>");
             }
         break;
     }

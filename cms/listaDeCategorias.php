@@ -1,15 +1,25 @@
 <?php
 
-// Valida se a utilização de variaveis de sessao esta ativa no servidor
-if (session_status()) {
+  // Variavel para diferenciar a action entre inserir e editar
+  $form = (string) "router.php?component=categorias&action=inserir";
 
-  // Valida se a variavel se sessao dadosCategoria nao esta vazia
-  if (!empty($_SESSION['dadosCategoria'])) 
-  {
-    $id   = $_SESSION['dadosCategoria']['id'];
-    $nome = $_SESSION['dadosCategoria']['nome'];
-  }
-}
+  // Valida se a utilização de variaveis de sessao esta ativa no servidor
+  if (session_status()) {
+
+    // Valida se a variavel se sessao dadosCategoria nao esta vazia
+    if (!empty($_SESSION['dadosCategoria'])) 
+    {
+      $id   = $_SESSION['dadosCategoria']['id'];
+      $nome = $_SESSION['dadosCategoria']['nome'];
+
+      // Mudando a ação do form para editar o registro ao clicar em salvar
+      $form = "router.php?component=categorias&action=editar&id=".$id;
+
+      // Destroi uma variável de memória do servidor
+      unset($_SESSION['dadosContato']);
+
+    }
+  } 
 
 ?>
 
@@ -57,16 +67,16 @@ if (session_status()) {
   </section>
 
   <section class="sessao categorias">
-    <h3>Categorias</h3>
+    <h3 class="titulo-da-secao">Categorias</h3>
     <div class="cadastroCategorias">
       <h3>Cadastro de Categorias</h3>
-      <form action="router.php?component=categorias&action=inserir" name="frmCadastro" method="post">
+      <form action="<?=$form?>" name="frmCadastro" method="post">
         <div class="campos">
           <div class="cadastroInformacoesPessoais">
             <label> Nome: </label>
           </div>
           <div class="cadastroEntradaDeDados">
-            <input type="text" name="txtNome" value="<?=$nome?>" placeholder="Digite a Categoria" maxlength="100">
+            <input type="text" name="txtNome" value="<?= isset($nome)? $nome:null?>" placeholder="Digite a Categoria" maxlength="100">
           </div>
         </div>
         <div class="enviar">
@@ -108,7 +118,7 @@ if (session_status()) {
               </a>
             </td>
           </tr>
-        <?php 
+        <?php
         }
         ?>
       </table>

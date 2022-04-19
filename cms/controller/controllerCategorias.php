@@ -88,6 +88,45 @@ function buscarCategoria($id)
 
 }
 
+function atualizarCategoria($dadosCategoria, $id)
+{
+    // Validação de objeto vazio
+    if (!empty($dadosCategoria))
+    {
+        // Validação de caixa vazia de elementos obrigatórios
+        if (!empty($dadosCategoria['txtNome']))
+        {
+            // Validação de id válido
+            if (!empty($id) && $id != 0 && is_numeric($id))
+            {
+                // Array para encaminhar os dados para a model inserir no BD
+                $arrayDados = array(
+                    "id"   => $id,
+                    "nome" => $dadosCategoria['txtNome']
+                );
+
+                // Import do arquivo de modelagem para manipular o BD
+                require_once('model/bd/categoria.php');
+
+                // Chama a função que fará o insert no BD
+                if (updateCategoria($arrayDados))
+                    return true;
+
+                else
+                    return array('idErro' => 1, 'message' => 'Não foi possível atualizar os dados no banco de dados');    
+            
+            } else 
+            {
+                return array('idErro' => 4, 'message' => 'Não é possivel editar um registro sem um Id válido');
+            }
+        
+        } else 
+        {
+            return array('idErro' => 2, 'message' => 'Campo obrigatório não preenchido');
+        }
+    }
+}
+
 function listarCategoria()
 {
     // Import do arquivo que vai buscar os dados
