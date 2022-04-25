@@ -3,16 +3,55 @@ h4 {
   font-weight: 700;
 }
 
+.introducao,
 .destaques-semana,
 .catalogo-produtos,
 .catalogo-promocoes {
   width: 100%;
   height: fit-content;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  font-family: Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.introducao {
+  margin-bottom: 50px;
+}
+
+.introducao h3 {
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.introducao .intro-text {
+  width: 587px;
+  height: 331px;
+  text-align: center;
+  background: rgba(141, 81, 48, 0.48);
+  border-radius: 0px 10px 10px 0px;
+  padding-top: 80px;
+  color: #fff;
+}
+
+.introducao .intro-text-img {
+  width: 80%;
+  height: auto;
+  display: flex;
+  margin-top: 50px;
+}
+
+.introducao .intro-text h5 {
+  font-size: 18px;
+  padding-bottom: 15px;
+}
+
+.introducao .intro-text p {
+  font-size: 14px;
+  padding: 15px;
 }
 
 /*Formatacao cards*/
@@ -29,9 +68,9 @@ h4 {
 .card {
   display: flex;
   flex-direction: column;
-  height: fit-content;
-  width: 300px;
-  padding: 8px;
+  height: 370px;
+  width: 230px;
+  /* padding: 8px; */
   align-items: center;
   text-align: center;
   gap: 15px;
@@ -43,8 +82,8 @@ h4 {
 }
 
 .card-image-container {
-  width: 100%;
-  height: 65%;
+  width: 114px;
+  height: 186px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,13 +97,13 @@ h4 {
 
 .card-produto.nome {
   font-family: Roboto, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .card-produto.descricao {
   padding: 0 50px;
-  font-size: 0.9rem;
+  font-size: 12px;
   font-weight: 300;
 }
 
@@ -76,19 +115,32 @@ h4 {
 .btn-comprar {
   width: 120px;
   height: 30px;
-  margin-top: 20px;
+  margin-top: 2px;
   border-radius: 45px;
   background-color: #181515;
   color: #fff;
 }
 
 .tarja-bege {
-  width: 100%;
+  width: 80%;
   height: 300px;
   position: absolute;
   z-index: -1;
   margin-top: 150px;
   background-color: rgba(128, 81, 55, 0.16);
+}
+
+.figura-destaques {
+  z-index: -2;
+  position: absolute;
+  right: 0;
+  bottom: -170px;
+}
+
+.imagem-gota-de-cafe {
+  position: absolute;
+  left: 0;
+  top: 200px;
 }
 
 .catalogo-produtos .card {
