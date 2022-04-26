@@ -58,7 +58,80 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                 }
             }
 
-            break;
+        break;
+
+        case 'USUARIOS':
+
+            // Import da controller de usuarios
+            require_once('controller/controllerUsuarios.php');
+
+            if ($action == 'INSERIR')
+            {
+                // Chama a função de inserir na controller
+                $resposta = inserirUsuario($_POST);
+
+                // Valida o tipo de dado que a controller retorna
+                if (is_bool($resposta))
+                {
+                    if ($resposta)
+                        echo ("<script>alert('Registro inserido com sucesso!');
+                                    window.location.href = 'listaDeUsuarios.php';
+                                </script>"); // Essa funcao retorna a pagina inicial apos a execução
+
+                } elseif (is_array($resposta))
+                    echo ("<script>
+                                alert('" . $resposta['message'] . "');
+                                window.history.back();
+                            </script>");
+                
+            // } elseif ($action == 'BUSCAR')
+            // {
+            //     // Recebe o id do registro que devera ser editado, e foi enviado pela url no link da imagem do editar que foi acionado na index
+            //     $idcontato = $_GET['id'];
+
+            //     // Chama a funcao de editar na controller
+            //     $dados = buscarUsuario($idusuario);
+
+            //     // Ativa a ultilização de variaveis de sessao no servidor
+            //     session_start();
+
+            //     // Guarda em uma variavel de sessao os dados que o BD retornou para a busca do ID. 
+            //     // Obs: essa variavel de sessao sera utilizada na index.php, para colocar os dados nas caixas de texto 
+            //     $_SESSION['dadosUsuario'] = $dados;
+
+            //     // Utilizando o header tambem poderemos chamar a index.php, 
+            //     // porem haverá uma ação de carregamento no navegador, piscando a tela novamente 
+            //     //header('location: index.php');
+
+            //     // Utilizando o require, iremos apenas importar a tela da index, assim não havendo um novo carregamento da página
+            //     require_once('listaDeUsuarios.php.php');
+
+            // } elseif ($action == 'EDITAR')
+            // {
+            //      //Recebe o id que foi encaminhado no action do form
+            //      $idcontato = $_GET['id'];
+
+            //      //chama a funcao de editar na controller
+            //      $resposta = atualizarUsuario($_POST, $idusuario);
+ 
+            //      //valida o tipo de dado que a controller retorna
+            //      if (is_bool($resposta)) //se for booleano
+            //      {
+            //          //verificar se o retorno foi verdadeiro
+            //          if ($resposta)
+            //              echo ("<script> 
+            //                      alert('Registro atualizado com sucesso!');
+            //                      window.location.href = 'listaDeUsuario'; 
+            //                  </script>"); // essa funcao retorna a página inicial apos a execuca
+            //      } elseif (is_array($resposta))
+ 
+            //          echo ("<script> 
+            //              alert('" . $resposta['message'] . "');
+            //              window.history.back(); 
+            //         </script>");
+            }
+
+        break;    
 
         case 'CATEGORIAS':
 
@@ -150,6 +223,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                                 window.history.back();
                             </script>");
             }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         break;
-    }
+    }    
 }
