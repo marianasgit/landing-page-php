@@ -12,7 +12,6 @@ if (session_status())
         $id     = $_SESSION['dadosUsuario']['id'];
         $nome   = $_SESSION['dadosUsuario']['nome'];
         $login  = $_SESSION['dadosUsuario']['login'];
-        $senha  = $_SESSION['dadosUsuario']['senha'];
 
         // Mudando a ação do form para editar o registro ao clicar em salvar
         $form = "router.php?component=usuarios&action=editar&id=".$id;

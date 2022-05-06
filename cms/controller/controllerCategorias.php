@@ -97,7 +97,7 @@ function atualizarCategoria($dadosCategoria, $id)
         if (!empty($dadosCategoria['txtNome']))
         {
             // Validação de id válido
-            if (!empty($id) && $id != 0 && is_numeric($id))
+            if (!empty($id) && $id !== 0 && is_numeric($id))
             {
                 // Array para encaminhar os dados para a model inserir no BD
                 $arrayDados = array(

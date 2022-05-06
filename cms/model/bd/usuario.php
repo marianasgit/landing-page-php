@@ -15,6 +15,8 @@
  // Função para fazer o insert no BD
 function insertUsuario($dadosUsuario)
 {
+    $statusResposta = false;
+
      // Abre a conexão com o BD
      $conexao = conexaoMySql();
 
@@ -33,11 +35,9 @@ function insertUsuario($dadosUsuario)
     {
         if (mysqli_affected_rows($conexao))
             $statusResposta = true;
-
-    } else 
-        // Solicita o fechamento da conexão
-        fecharConexaoMySql($conexao);  
-        
+    } 
+    // Solicita o fechamento da conexão
+    fecharConexaoMySql($conexao);  
     return $statusResposta;   
 }
 
@@ -74,6 +74,81 @@ function selectAllUsuarios ()
 
         return $arrayDados;
     }
+}
+
+function deleteUsuario($id)
+{
+    // Abre conexão com o BD
+    $conexao = conexaoMySql();
+
+    // Script para deletar um registro no BD
+    $sql = 'delete from tblusuarios where idusuario ='.$id;
+
+    // Valida se o script está correto 
+    if (mysqli_query($conexao, $sql))
+    {      
+        if (mysqli_affected_rows($conexao))
+            $statusResposta = true;
+    }
+
+    fecharConexaoMySql($conexao);
+    return $statusResposta;
+    
+}
+
+function updateUsuario($dadosUsuario)
+{
+    // Abre a conexão com o BD
+    $conexao = conexaoMySql();
+
+    // Monta o script para enviar para o BD
+    $sql = "update tblusuarios set 
+                nome     = '" . $dadosUsuario['nome'] . "',
+                login     = '" . $dadosUsuario['login'] . "',
+                senha     = '" . $dadosUsuario['senha'] . "'
+            where idusuario = ".$dadosUsuario['id'];
+
+    // Valida se o script esta correto
+    if (mysqli_query($conexao, $sql))
+    {
+        if(mysqli_affected_rows($conexao))
+            $statusResposta = true;
+
+    } else
+        // Solicita o fechamento da conexão
+        fecharConexaoMySql($conexao);       
+        
+    return $statusResposta;    
+}
+
+function selectByIdUsuario($id)
+{
+    // Abre a conexão com o BD
+    $conexao = conexaoMySql();
+
+    // Script para listar todos os dados do BD
+    $sql = 'select * from tblusuarios where idusuario = '.$id;
+
+    // Executa o script sql no BD e guarda o retorno dos dados se houver
+    $result = mysqli_query($conexao, $sql);
+
+    // Valida se o BD retorna registros
+    if ($result)
+    {
+        // Convertendo dados do BD em array
+        if ($rsDados = mysqli_fetch_assoc($result))
+        {
+            // Cria um array com os dados do BD
+            $arrayDados = array(
+                "id" => $rsDados['idusuario'],
+                "nome" => $rsDados['nome'],
+                "login" => $rsDados['login'],
+            );
+        }
+    }
+
+    fecharConexaoMySql($conexao);
+    return $arrayDados;
 }
 
 ?>
