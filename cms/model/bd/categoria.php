@@ -88,7 +88,7 @@ function updateCategoria($dadosCategoria)
      $conexao = conexaoMySql();
 
      // Script para listar todos os dados do BD
-     $sql = 'select * from tblcategorias';
+     $sql = 'select * from tblcategorias order by nome';
 
      // Executa o script sql e guarda o retorno se houver
      $result = mysqli_query($conexao, $sql);
