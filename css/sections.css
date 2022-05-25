@@ -38,10 +38,9 @@ h4 {
 }
 
 .introducao .intro-text-img {
-  width: 80%;
   height: auto;
   display: flex;
-  margin-top: 50px;
+  margin: 50px auto 0 auto;
 }
 
 .introducao .intro-text h5 {

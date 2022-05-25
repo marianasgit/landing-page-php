@@ -7,10 +7,8 @@ $foto = (string) null;
 
 $idcategoria = (string) null;
 
-if (session_status())
-{
-    if (!empty($_SESSION['dadosProduto']))
-    {
+if (session_status()) {
+    if (!empty($_SESSION['dadosProduto'])) {
         $id                  = $_SESSION['dadosProduto']['id'];
         $nome                = $_SESSION['dadosProduto']['nome'];
         $descricao           = $_SESSION['dadosProduto']['descricao'];
@@ -20,12 +18,15 @@ if (session_status())
         $imagem              = $_SESSION['dadosProduto']['foto'];
         $idcategoria         = $_SESSION['dadosProduto']['idcategoria'];
 
-        $form = "router.php?component=produtos&action=editar&id=" .$id . "&foto=" . $foto;
+        $form = "router.php?component=produtos&action=editar&id=" . $id . "&foto=" . $foto;
 
         unset($_SESSION['dadosProduto']);
     }
 }
 
+require_once('controller/controllerCategorias.php');
+
+$listCategoria = listarCategoria();
 
 ?>
 
@@ -108,15 +109,16 @@ if (session_status())
                         <select name="sltCategoria">
                             <option value="">Selecione uma categoria:</option>
                             <?php
-                            require_once('controller/controllerCategorias.php');
+                            foreach ($listCategoria as $item) :
 
-                            $listCategoria = listarCategoria();
-
-                            foreach ($listCategoria as $item) {
                             ?>
-                                <option <?= $idcategoria == $item['idcategoria'] ? 'selected' : null ?> value="<?= $item['idcategoria'] ?>"><?= $item['nome'] ?></option>
+                                <option <?= $idcategoria == $item['id'] ? 'selected' : null ?> value="<?= $item['id'] ?>">
+
+                                    <?= $item['nome'] ?>
+
+                                </option>
                             <?php
-                            }
+                            endforeach;
                             ?>
                         </select>
                     </div>
@@ -155,58 +157,58 @@ if (session_status())
         </div>
 
         <div id="consultaDeDados">
-        <table id="tblConsulta">
-            <tr>
-                <td id="tblTitulo" colspan="6">
-                    <h1> Consulta de Dados</h1>
-                </td>
-            </tr>
-            <tr id="tblLinhas">
-                <td class="tblColunas destaque"> Nome </td>
-                <td class="tblColunas destaque"> Descricao </td>
-                <td class="tblColunas destaque"> Preço </td>
-                <td class="tblColunas destaque"> Destaque </td>
-                <td class="tblColunas destaque"> Promoção (%) </td>
-                <td class="tblColunas destaque"> Imagem </td>
-                <td class="tblColunas destaque"> Opções </td>
-            </tr>
+            <table id="tblConsulta">
+                <tr>
+                    <td id="tblTitulo" colspan="6">
+                        <h1> Consulta de Dados</h1>
+                    </td>
+                </tr>
+                <tr id="tblLinhas">
+                    <td class="tblColunas destaque"> Nome </td>
+                    <td class="tblColunas destaque"> Descricao </td>
+                    <td class="tblColunas destaque"> Preço </td>
+                    <td class="tblColunas destaque"> Destaque </td>
+                    <td class="tblColunas destaque"> Promoção (%) </td>
+                    <td class="tblColunas destaque"> Imagem </td>
+                    <td class="tblColunas destaque"> Opções </td>
+                </tr>
 
-            <?php
-            // Import do arquivo da controller para asolicitar a listagem dos dados
-            require_once('controller/controllerProdutos.php');
-            // Chama a função que retorna os dados de produtos
-            if ($listProduto = listarProduto()) {
+                <?php
+                // Import do arquivo da controller para asolicitar a listagem dos dados
+                require_once('controller/controllerProdutos.php');
+                // Chama a função que retorna os dados de produtos
+                if ($listProduto = listarProduto()) {
 
-                // Estrutura de repetição para retornar os dados do array e printar na tela
-                foreach ($listProduto as $item) {
-                    $foto = $item['foto']; // Variavel para carregar a foto que veio do BD
-            ?>
-                    <tr id="tblLinhas">
-                        <td class="tblColunas registros"><?= $item['nome'] ?></td>
-                        <td class="tblColunas registros"><?= $item['descricao'] ?></td>
-                        <td class="tblColunas registros"><?= $item['preco'] ?></td>
-                        <td class="tblColunas registros"><?= $item['destaque'] ?></td>
-                        <td class="tblColunas registros"><?= $item['percentual_promocao']?></td>
-                        <td class="tblColunas registros">
-                            <img src="arquivos/<?= $foto ?>" class="foto">
-                        </td>
-                        <td class="tblColunas registros">
-                            <a href="router.php?component=produtos&action=buscar&id=<?= $item['id'] ?>">
-                                <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
-                            </a>
-                            <a onclick="return confirm('Deseja excluir esse item?')" href="router.php?component=produtos&action=deletar&id=<?= $item['id'] ?>&foto=<?= $foto ?>">
-                                <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
-                            </a>
-                            <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
-                        </td>
-                    </tr>
-            <?php
+                    // Estrutura de repetição para retornar os dados do array e printar na tela
+                    foreach ($listProduto as $item) {
+                        $foto = $item['foto']; // Variavel para carregar a foto que veio do BD
+                ?>
+                        <tr id="tblLinhas">
+                            <td class="tblColunas registros"><?= $item['nome'] ?></td>
+                            <td class="tblColunas registros"><?= $item['descricao'] ?></td>
+                            <td class="tblColunas registros"><?= $item['preco'] ?></td>
+                            <td class="tblColunas registros"><?= $item['destaque'] ?></td>
+                            <td class="tblColunas registros"><?= $item['percentual_promocao'] ?></td>
+                            <td class="tblColunas registros">
+                                <img src="arquivos/<?= $foto ?>" class="foto">
+                            </td>
+                            <td class="tblColunas registros">
+                                <a href="router.php?component=produtos&action=buscar&id=<?= $item['id'] ?>">
+                                    <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
+                                </a>
+                                <a onclick="return confirm('Deseja excluir esse item?')" href="router.php?component=produtos&action=deletar&id=<?= $item['id'] ?>&foto=<?= $foto ?>">
+                                    <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                                </a>
+                                <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar">
+                            </td>
+                        </tr>
+                <?php
+                    }
                 }
-            }
-            ?>
+                ?>
 
-        </table>
-    </div>
+            </table>
+        </div>
     </section>
 </body>
 

@@ -1,4 +1,5 @@
 <?php
+
 /********************************************************************
  * Objetivo: Arquivo responsável pela manipulação de dados de categoria 
  * Obs: Este arquivo fará a ponte entre a View e a Model
@@ -8,17 +9,15 @@
  * Versão: 1.0
  *******************************************************************/
 
- // Função para receber dados da View e encaminhar para a model (Inserir)
+// Função para receber dados da View e encaminhar para a model (Inserir)
 function inserirCategoria($dadosCategoria)
 {
     // Vaçidação para verificar se o objeto está vazio
-    if (!empty($dadosCategoria)) 
-    {
+    if (!empty($dadosCategoria)) {
         // Validação de caixa vazia para o elemento nome que é obrigatório no BD
-        if (!empty($dadosCategoria['txtNome']))
-        {
+        if (!empty($dadosCategoria['txtNome'])) {
             // Criação do array de dados que será encaminhado para a model para inserir no BD
-            $arrayDados = array (
+            $arrayDados = array(
                 "nome" => $dadosCategoria['txtNome'],
             );
 
@@ -28,11 +27,10 @@ function inserirCategoria($dadosCategoria)
             // Chama a função que fará o insert no banco de dados (função que está na model)
             if (insertCategoria($arrayDados))
                 return true;
-            else    
-                return array ('idErro' => 1, 'message' => 'Não foi possível inserir os dados no banco de dados');
-
-        } else  
-            return array (
+            else
+                return array('idErro' => 1, 'message' => 'Não foi possível inserir os dados no banco de dados');
+        } else
+            return array(
                 'idErro' => 2,
                 'message' => 'Campo obrigatório não preenchido!'
             );
@@ -42,8 +40,7 @@ function inserirCategoria($dadosCategoria)
 function excluirCategoria($id)
 {
     // Validação para verificar se o id contém um número válido
-    if ($id !== 0 && !empty($id) && is_numeric($id))
-    {
+    if ($id !== 0 && !empty($id) && is_numeric($id)) {
         // Import do arquivo de categoria
         require_once('model/bd/categoria.php');
 
@@ -54,8 +51,7 @@ function excluirCategoria($id)
             return array(
                 'idErro' => 3,
                 'message' => 'O banco não pode excluir o registro.'
-            );    
-    
+            );
     } else
         return array(
             'idErro' => 4,
@@ -66,8 +62,7 @@ function excluirCategoria($id)
 function buscarCategoria($id)
 {
     // Validação para verificar se o id contém um número válido
-    if ($id !== 0 && !empty($id) && is_numeric($id))
-    {
+    if ($id !== 0 && !empty($id) && is_numeric($id)) {
         // Import do arquivo na model que vai buscar no BD
         require_once('model/bd/categoria.php');
 
@@ -77,28 +72,23 @@ function buscarCategoria($id)
         // Valida se existem dados para serem devolvidos
         if (!empty($dados))
             return $dados;
-        else 
+        else
             return false;
-
-    } else 
-        return array (
+    } else
+        return array(
             'idErro' => 4,
             'message' => 'Não é possível buscar um registro sem informar um Id válido'
         );
-
 }
 
 function atualizarCategoria($dadosCategoria, $id)
 {
     // Validação de objeto vazio
-    if (!empty($dadosCategoria))
-    {
+    if (!empty($dadosCategoria)) {
         // Validação de caixa vazia de elementos obrigatórios
-        if (!empty($dadosCategoria['txtNome']))
-        {
+        if (!empty($dadosCategoria['txtNome'])) {
             // Validação de id válido
-            if (!empty($id) && $id !== 0 && is_numeric($id))
-            {
+            if (!empty($id) && $id !== 0 && is_numeric($id)) {
                 // Array para encaminhar os dados para a model inserir no BD
                 $arrayDados = array(
                     "id"   => $id,
@@ -113,15 +103,11 @@ function atualizarCategoria($dadosCategoria, $id)
                     return true;
 
                 else
-                    return array('idErro' => 1, 'message' => 'Não foi possível atualizar os dados no banco de dados');    
-            
-            } else 
-            {
+                    return array('idErro' => 1, 'message' => 'Não foi possível atualizar os dados no banco de dados');
+            } else {
                 return array('idErro' => 4, 'message' => 'Não é possivel editar um registro sem um Id válido');
             }
-        
-        } else 
-        {
+        } else {
             return array('idErro' => 2, 'message' => 'Campo obrigatório não preenchido');
         }
     }
@@ -137,8 +123,6 @@ function listarCategoria()
 
     if (!empty($dados))
         return $dados;
-    else    
-        return false;    
+    else
+        return false;
 }
-
-?>

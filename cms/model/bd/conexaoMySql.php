@@ -10,7 +10,8 @@
 // Constantes para estabelecer a conexao com o banco de dados (local do banco, usuario, senha e database),
 const SERVER = 'localhost';
 const USER = 'root';
-const PASSWORD = 'bcd127';
+//const PASSWORD = 'bcd127';
+const PASSWORD = '123456';
 const DATABASE = 'dbcoffeeshop';
 
 $resultado = conexaoMySql();
