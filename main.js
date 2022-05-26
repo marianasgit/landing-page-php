@@ -1,35 +1,13 @@
 "use strict";
 
-const db = [
-  {
-    id: 1,
-    nome: "Baggio Café Espresso Grão 500g",
-    descricao: "Um café premium de alta qualidade com notas intensas",
-    preco: "29.70",
-    imagem: "./img/img-cafe.svg",
-  },
-  {
-    id: 2,
-    nome: "Baggio Café Espresso Grão 500g",
-    descricao: "Um café premium de alta qualidade com notas intensas",
-    preco: "29.70",
-    imagem: "./img/img-cafe.svg",
-  },
-  {
-    id: 3,
-    nome: "Baggio Café Espresso Grão 500g",
-    descricao: "Um café premium de alta qualidade com notas intensas",
-    preco: "29.70",
-    imagem: "./img/img-cafe.svg",
-  },
-  {
-    id: 4,
-    nome: "Baggio Café Espresso Grão 500g",
-    descricao: "Um café premium de alta qualidade com notas intensas",
-    preco: "29.70",
-    imagem: "./img/img-cafe.svg",
-  },
-];
+const listarProduto = async () => {
+  const baseURL = window.location.host;
+  const url = `http://${baseURL}/cms/router.php?component=produtos&action=listar`;
+  const response = await fetch(url);
+  const data = await response.json();
+
+  return data;
+};
 
 const criarCard = (produto) => {
   const card = document.createElement("div");
@@ -73,6 +51,9 @@ const carregarProdutos3 = (produtos) => {
   promocao.replaceChildren(...cards);
 };
 
-carregarProdutos(db);
-carregarProdutos2(db);
-carregarProdutos3(db);
+listarProduto().then((produtos) => {
+  200;
+  carregarProdutos(produtos);
+  carregarProdutos2(produtos);
+  carregarProdutos3(produtos);
+});

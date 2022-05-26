@@ -230,7 +230,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                 // Recebe o id do registro que devera ser editado, e foi enviado pela url no link da imagem do editar que foi acionado na index
                 $idproduto = $_GET['id'];
 
-                // Chama a funcao de editar na controller
+                // Chama a funcao de buscar na controller
                 $dados = buscarProduto($idproduto);
 
                 // Ativa a ultilização de variaveis de sessao no servidor
@@ -278,6 +278,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
                          alert('" . $resposta['message'] . "');
                          window.history.back(); 
                     </script>");
+            } elseif ($action == "LISTAR") {
+
+                $dados = listarProduto();
+                print_r($dados);
             }
 
 
