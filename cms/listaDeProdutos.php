@@ -37,7 +37,7 @@ $listCategoria = listarCategoria();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/listaDeUsuarios.css">
+    <link rel="stylesheet" href="./css/listaDeProdutos.css">
     <title>CMS</title>
 </head>
 
@@ -74,7 +74,7 @@ $listCategoria = listarCategoria();
     </section>
     <section class="sessao produtos">
         <h3 class="titulo-da-secao">Produtos</h3>
-        <div class="cadastroUsuarios">
+        <div class="cadastroProdutos">
             <h3>Cadastro de Produtos</h3>
             <form action="<?= $form ?>" name="frmCadastro" method="post">
                 <div class="campos">

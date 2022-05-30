@@ -227,9 +227,6 @@ function listarProduto()
     //chama a funcao que vai buscar os dados no bd
     $dados = selectAllProdutos();
 
-    print_r(json_encode($dados));
-    die;
-
     //
     if (!empty($dados))
         return $dados;

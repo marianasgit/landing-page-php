@@ -281,7 +281,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
             } elseif ($action == "LISTAR") {
 
                 $dados = listarProduto();
-                print_r($dados);
             }
 
 
